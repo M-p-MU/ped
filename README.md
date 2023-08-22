@@ -1,3 +1,6 @@
+# ped
+PublishEveryDay(PED) is a web-based application designed to ideally empower bloggers and content creators who are dedicated to making a positive impact on society or provide great self-actualization guidance through written content.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
