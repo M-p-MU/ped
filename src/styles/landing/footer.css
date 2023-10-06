@@ -1,0 +1,215 @@
+.footer-page-wrapper h3{
+
+}
+.footer-page-wrapper {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    isolation: isolate;
+    position: absolute;
+    width: 100%;
+    height: 226px;
+    left: 0px;
+    right: 0px;
+}
+
+.footer-page-wrapper .copy{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    position: absolute;
+    width: 50%;
+    height: 37px;
+    left: 609px;
+    top: 173px;
+}
+.footer-page-wrapper .content{
+width: 100%;
+height: 17px;
+font-family: 'Zen Maru Gothic';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 17px;
+color: #FFFFFF;
+}
+.footer-page-wrapper .top{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 127px;
+
+    position: absolute;
+    width: 1223px;
+    height: 98px;
+    left: 81px;
+    top: 48px;
+}
+.footer-page-wrapper .top .item1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+    width: 323px;
+    height: 98px
+}
+.footer-page-wrapper .top .item1 .logo-name{
+width: 55px;
+height: 46px;
+
+font-family: 'Zen Maru Gothic';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 46px;
+
+color: #20BEFF;
+}
+
+.footer-page-wrapper .top .item2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 38px;
+
+    width: 35%;
+    height: 98px;
+}
+.footer-page-wrapper .top .item2 .header{
+        width: 100;
+        height: 35px;
+
+        font-family: 'Zen Maru Gothic';
+        font-style: normal;
+        font-weight: 250;
+        font-size: 20px;
+        line-height: 35px;
+        color: #FFFFFF;
+    }
+.footer-page-wrapper .top .item2  .follow-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 25px;
+
+    width: 107.5px;
+    height: 20px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    }
+.footer-page-wrapper .top .item2 .follow-icons .icon{
+    width: 20px;
+    height: 20px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    background: #FFFFFF; 
+    border-radius: 2px;
+}
+.footer-page-wrapper .top .item3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 33px;
+
+    width: 323px;
+    height: 98px;
+}
+.footer-page-wrapper .top .item3 .header{
+width: 323px;
+height: 35px;
+
+font-family: 'Zen Maru Gothic';
+font-style: normal;
+font-weight: 200;
+font-size: 20px;
+line-height: 35px;color: #FFFFFF;
+}
+.footer-page-wrapper .top .item3 .contact{
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 7px;
+
+width: 323px;
+height: 30px;   
+}
+.footer-page-wrapper .top .item3 .contact  .border{box-sizing: border-box;
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0;
+/* gap: 10px; */
+
+width: 241px;
+height: 30px;
+
+border: 1px solid #FFFFFF;
+border-radius: 5px;}
+.footer-page-wrapper .top .item3 .contact .border .input{
+    padding: 0;
+    margin: 0;
+width: 100%;
+/* height: 100%; */
+font-family: 'Zen Maru Gothic';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+border-color: black;
+background-color: black;
+color: #FFFFFF;
+border:none;
+}
+.footer-page-wrapper .top .item3 .contact .border input:focus{
+    border-color: black;
+}
+.footer-page-wrapper .top .item3 .contact .btn .icon{
+    transform: rotate(-30deg);
+    width: 20px;
+    height: 20px;
+}
+.footer-page-wrapper .top .item3 .contact .btn{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 5px;
+
+width: 75px;
+height: 30px;
+
+background: #FFFFFF;
+border-radius: 5px;
+}
+.footer-page-wrapper .top .item3 .contact .btn span{
+    width: 48px;
+    height: 22px;
+
+    font-family: 'Zen Maru Gothic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height */
+    color: #000000;
+    margin-left: 3px;
+}

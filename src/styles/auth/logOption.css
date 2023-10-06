@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.log-option{
+    background: #3e75;
+}
+.logo-box{
+    background: #fff;
+    padding: 30px 120px;
+    width: 550px;
+    position: absolute;
+    top: 50%;left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    text-align: center;
+    /* border: 1px solid #999; */
+}
+.logo{
+    width: 30px;
+    margin-bottom: px;
+}
+.logo-box h2{
+    font-size: 18px;    
+    margin-bottom: 20px;
+}
+.logo-box .opt{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid #999;
+    font-weight: 500;
+    cursor: pointer ;
+    justify-content: left;
+    align-items: center;
+    padding-left: 100px;
+}
+.logo-box button img{
+    width: 18px;
+    margin-right: 10px;
+}
+.logo-box span{
+    display: block;
+    width: 40px;
+    margin: auto;
+    background-color: #fff;
+    font-size: 16px;
+    margin-top: -15px;
+    margin-bottom: 5px;
+}
+.logo-box input{
+    width: 100%;
+    background: transparent;
+    border: 1px solid #999;
+    outline: 0;
+    padding:15px 10px;
+    border-radius: 4px;
+}
+::placeholder{
+    font-weight: 500;
+    color: #333;
+}
+.logo-box .log,.fpwd{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid #999;
+    font-weight: 500;
+    cursor: pointer ;
+    border:0;
+    margin-bottom: 15px;
+}
+
+.logo-box .fpwd{
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+}
+.logo-box .log{
+    
+    background: #000;
+    color: #fff;
+}
+.logo-box p{
+    font-size: 14px;
+    color: #555;
+    margin: 40px 0px 50px;
+}
+.logo-box p a{
+    text-decoration: none;
+    color: #359fc0;
+    margin-left: 100px;
+}
