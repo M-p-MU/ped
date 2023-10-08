@@ -20,7 +20,7 @@ function SideBar() {
     return (
         <>
             <div className={`${open ? "w-72" : "w-20"} 
-            p-5 pt-8 duration-300 h-screen bg-black relative`}>
+            p-5 pt-8 fixed duration-300 h-screen bg-black relative`}>
                 <img src={Control} className={`absolute cursor-pointer -right-3 w-7 border-2 top-9 border-base rounded-full ${!open && "rotate-180"}`} onClick={() => setOpen(!open)} />
                 <div className={`flex gap-x-4 items-center`}>
                     <img src={logo} className={`cursor-pointer w-8 duration-500
