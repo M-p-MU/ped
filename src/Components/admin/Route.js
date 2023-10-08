@@ -1,6 +1,6 @@
 import { Ecommerce, Analytics, Calendar, Bloggers, Blogs, Stacked, Pyramid, Users, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from '../../pages/admin';
 
-const routes =[
+const routes = [
     /**
      * Dashboard
      */
@@ -82,4 +82,4 @@ const routes =[
         elt: <Stacked />
     },
 ];
-export default  routes;
+export default routes;
