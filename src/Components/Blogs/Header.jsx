@@ -1,15 +1,15 @@
 import React from 'react'
-import logo from '../../Assets/images/logo3.png'
-import { IoLogoYoutube } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
-import { FiArrowRight } from "react-icons/fi";
+// import logo from '../../Assets/images/logo3.png'
+// import { IoLogoYoutube } from "react-icons/io5";
+// import { useNavigate } from 'react-router-dom';
+// import { FiArrowRight } from "react-icons/fi";
 import photo from '../../Assets/images/avatar/avatar-s-11.jpg';
 import { Link } from "react-router-dom";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 
 function Header(props) {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     return (
         <>
         {/* <div className='flex justify-between items-center'>
@@ -38,7 +38,7 @@ function Header(props) {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src={photo} />
+                  <img src={photo} alt='photo' />
                 </div>
               </label>
               <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">

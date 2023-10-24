@@ -10,7 +10,7 @@ function Home() {
     const [post, setPost] = useState([])
     const [orgPost, setOrgPost] = useState([])
 
-    useEffect(() => {
+    useEffect(() => { 
         getPost();
     }, [])
     const getPost = () => {
@@ -28,11 +28,11 @@ function Home() {
     }
 
     const filterPost = (tag) => {
-        if (tag == 'All') {
+        if (tag === 'All') {
             setPost(orgPost);
             return;
         }
-        const result = orgPost.filter(item => item.tag == tag);
+        const result = orgPost.filter(item => item.tag === tag);
         setPost(result);
     }
     return (

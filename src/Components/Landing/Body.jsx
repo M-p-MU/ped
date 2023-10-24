@@ -41,12 +41,12 @@ return (
 
             {/*  */}
             <div className="">
-                <h1 className="text-3xl font-bold mb-4">Who's on Ped?</h1>
-                <section class="cards flex flex-col md:flex-row" style={styleBox}>
-                    <article class="card">
+                <h1 className="text-3xl font-bold mb-4">Who&apos;s on Ped?</h1>
+                <section className="cards flex flex-col md:flex-row" style={styleBox}>
+                    <article className="card">
                         <div className="stat gap-2">
                             <div className="stat-figure text-secondary">
-                                <img src={G1} />
+                                <img src={G1} alt="img" />
                                 {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> */}
                             </div>
                             <div className="stat-value">Learners</div>
@@ -55,10 +55,10 @@ return (
                         </div>
                     </article>
 
-                    <article class="card">
+                    <article className="card">
                         <div className="stat gap-2">
                             <div className="stat-figure text-secondary">
-                                <img src={G2} />
+                                <img src={G2} alt="img" />
                                 {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> */}
                             </div>
                             <div className="stat-value">Developers</div>
@@ -67,10 +67,10 @@ return (
                         </div>
                     </article>
 
-                    <article class="card">
+                    <article className="card">
                         <div className="stat gap-2">
                             <div className="stat-figure text-secondary">
-                                <img src={G3} />
+                                <img src={G3} alt="img" />
                                 {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> */}
                             </div>
                             <div className="stat-value">Reaseachers</div>
@@ -102,7 +102,7 @@ return (
                         <div className='flex space-x-3 p-3'>
                             <div className="avatar">
                                 <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                    <img src={photo} />
+                                    <img src={photo} alt="img" />
                                 </div>
                             </div>
                             <div className="flex flex-col gap-1">
@@ -137,7 +137,7 @@ return (
                         <div className='flex space-x-3 p-3'>
                             <div className="avatar">
                                 <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                    <img src={photo} />
+                                    <img src={photo} alt='img' />
                                 </div>
                             </div>
                             <div className="flex flex-col gap-1">
@@ -162,7 +162,7 @@ return (
                         <div className='flex space-x-3 p-3'>
                             <div className="avatar">
                                 <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                    <img src={photo} />
+                                    <img src={photo} alt="img" />
                                 </div>
                             </div>
                             <div className="flex flex-col gap-1">
@@ -187,7 +187,7 @@ return (
                         <div className='flex space-x-3 p-3'>
                             <div className="avatar">
                                 <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                    <img src={photo} />
+                                    <img src={photo} alt="img" />
                                 </div>
                             </div>
                             <div className="flex flex-col gap-1">

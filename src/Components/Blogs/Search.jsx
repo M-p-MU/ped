@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import banner from '../../Assets/images/posts/banner.jpg'
 import { IoSearchOutline } from "react-icons/io5";
-import GlobalApi from '../../Services/GlobalApi';
+// import GlobalApi from '../../Services/GlobalApi';
 
 function Search({ selectedTag }) {
     const tags = [
@@ -44,7 +44,7 @@ function Search({ selectedTag }) {
        mt-5'>
                 {tags.map((item, index) => (
                     <ul key={item.id} onClick={() => { setActiveIndex(index); selectedTag(item.name) }}
-                        className={`${index == activeIndex ?
+                        className={`${index === activeIndex ?
                             'bg-red-500 text-white' : null} p-1 pb-2 rounded-sm
                 md:rounded-full cursor-pointer md:px-4
                 hover:scale-110 hover:border-[1px] 

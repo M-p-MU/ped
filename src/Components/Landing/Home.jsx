@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 
-const Home = (props) => {
-  console.log(props.email);
+const Home = () => {
+  // console.log(props.email);
+  const token = sessionStorage.getItem('authToken');
   return (
     <>
       {/* where the user is connected */}
@@ -24,14 +25,14 @@ const Home = (props) => {
           <div className="form-control">
             <input type="text" placeholder="Search" className="input input-bordered rounded-full w-24 h-8 md:w-auto" />
           </div>
-          { props.email ? (
+          { token ? (
             <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <label htmlFor='inputField' className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src={photo} />
+                  <img src={photo} alt='img' />
                 </div>
               </label>
-              <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+              <ul className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                 <li>
                   <a className="justify-between">
                     Profile
@@ -59,9 +60,9 @@ const Home = (props) => {
       {/* Hero section */}
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <img src={banner} />
+          <img src={banner} alt='img' />
           <div>
-            <h1 className="text-5xl font-bold">Level up with the Blogger's community </h1>
+            <h1 className="text-5xl font-bold">Level up with the Blogger&apos;s community </h1>
             <p className="py-6"> Join over 14M+ bloggers to share, stress test, get propositions about your topic and stay up-to-date on all the latest World techniques and technologies. Discover a huge repository of community-published models, data & code for your next project.</p>
             <button className="btn btn-primary">Get Started <FiArrowRight /></button>
           </div>

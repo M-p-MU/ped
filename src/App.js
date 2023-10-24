@@ -2,7 +2,7 @@
 import UserIndex from './Components/Landing/Index';
 import Register from './Components/Auth/Register';
 import Login from './Components/Auth/Login';
-import Text from './Components/Auth/Text';
+// import Text from './Components/Auth/Text';
 import LoginOption from './Components/Auth/LoginOption';
 import NotFound from './Components/Error/404';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -12,7 +12,6 @@ import './App.css';
 import Main from './Components/admin/index/Index';
 import routes from './Components/admin/Route';
 import blg_routes from './Components/blogers/routes/index';
-
 
 import Home from './pages/blogs/Home';
 import BlogDetail from './pages/blogs/BlogDetail';

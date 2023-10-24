@@ -8,7 +8,7 @@ import { AiOutlineEllipsis } from "react-icons/ai";
 export default function DropdownItemsWithIcon() {
   return (
     <>
-      <Dropdown label="Dropdown" icon={AiOutlineEllipsis} inline>
+      {/* <Dropdown label="Dropdown" icon={AiOutlineEllipsis} inline>
         <Dropdown.Item icon={HiShare}>
           Share
         </Dropdown.Item>
@@ -16,7 +16,7 @@ export default function DropdownItemsWithIcon() {
         <Dropdown.Item icon={HiDownload}>Download</Dropdown.Item>
         <Dropdown.Divider />
         <Dropdown.Item icon={HiSave}>Save</Dropdown.Item>
-      </Dropdown>
+      </Dropdown> */}
       <div className="dropdown dropdown-hover">
         <label tabIndex={0} className="btn m-1">
           <AiOutlineEllipsis />
