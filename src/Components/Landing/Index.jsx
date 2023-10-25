@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Home from './Home';
 import Footer from './Footer';
 import Body from './Body';
 import {useLocation} from 'react-router-dom';
+import GlobalApi from '../../Services/GlobalApi';
 
 const Index = () => {
   // get email from login option
@@ -10,10 +11,36 @@ const Index = () => {
   const searchParams = new URLSearchParams(location.search);
   const email = searchParams.get('email') || '';
   console.log(email);
+
+  const [posts, setPosts] = useState([])
+
+    useEffect(() => { 
+        getPosts();
+    }, [])
+    const getPosts = () => {
+        GlobalApi.getMostTenBlogs.then(resp => {
+            const result = resp.topBlogs.map(item => ({
+                id: item._id,
+                title: item.title,
+                content: item.content,
+                tag: item.attributes.tag,
+                coverImage: item.images,
+                comments: item.comments,
+                shares: item.shares,
+                views: item.view,
+                likes: item.likes,
+                tags: item.tag,
+                blogger: item.bloggerName,
+            }));
+            setPosts(result);
+        })
+    }
+
+
   return (
     <div>
         <Home email={email}/>
-        <Body />
+        <Body posts={posts} />
         <Footer />
     </div>
   )
