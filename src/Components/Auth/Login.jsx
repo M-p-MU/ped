@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import { useStateContext } from "../../contexts/ContextProvider";
 import GlobalApi from "../../Services/GlobalApi";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import jwt_decode from "jwt-decode";
 
 function generateRandomString(length) {
   const characters =
@@ -25,11 +26,7 @@ function Login() {
   // alert(user);
   // get email from login option
   const location = useLocation();
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const initialEmail = searchParams.get("email") || "";
-    setEmail(initialEmail);
-  }, [location.search]);
+ 
   // setMail(email);
   // console.log(email);
 
@@ -74,17 +71,26 @@ function Login() {
           alert("Login successfully !");
           // Create a new user object with updated values
           const data = response.data;
-          const newUser = {
-            id: data.user._id,
-            username: data.user.username,
-            email: data.user.email,
-            token: data.token,
-          };
-          console.log(newUser);
-          // updateUserDetails(newUser);
-          // setUserData({ newUser });
-          sessionStorage.setItem('authToken', data.token);
-          navigate('/')
+          const user = jwt_decode(data.token);
+          if(user){
+            if(user.input.emailVerified){
+              const newUser = {
+                id: data.user._id,
+                username: data.user.username,
+                email: data.user.email,
+                token: data.token,
+              };
+              console.log(newUser);
+              // updateUserDetails(newUser);
+              // setUserData({ newUser });
+    
+              sessionStorage.setItem('authToken', data.token);
+              navigate('/');
+            }else{
+              alert("Your account is not activate, please verified your mail to activate your account.");
+            }
+          }
+          
         }
       } else {
         alert("Something wrong while login, please try again !");

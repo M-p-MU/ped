@@ -46,7 +46,7 @@ const LoginOption = () => {
           <Link to={`/login?email=${email}`} >Next</Link>
         </button>
         <button className='fpwd'>Forget password</button>
-        <p>Don't have an account ? <a href="register">Sgin up</a></p>
+        <p>Don&lsquo;t have an account ? <a href="register">Sgin up</a></p>
       </div>
     </div>
   )
