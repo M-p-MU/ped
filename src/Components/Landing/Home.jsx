@@ -6,6 +6,7 @@ import photo from "../../Assets/images/avatar/avatar-s-11.jpg";
 import { Link } from "react-router-dom";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import jwt_decode from "jwt-decode";
+import { HiOutlineExclamationCircle } from 'react-icons/hi';
 
 import { Button, Modal } from "flowbite-react";
 import Profil from "./Profil";
@@ -23,12 +24,15 @@ const Home = () => {
   };
   // console.log(props.email);
   const token = sessionStorage.getItem("authToken");
-  const user = jwt_decode(token);
   useEffect(() => {
-    if(user){
-      setName(user.input.username)
-      setMail(user.input.email);
+    if (token) {
+      const user = jwt_decode(token);
+      if (user) {
+        setName(user.input.username)
+        setMail(user.input.email);
+      }
     }
+
   }, []);
   const logout = () => {
     sessionStorage.removeItem("authToken");
@@ -60,35 +64,33 @@ const Home = () => {
           </div>
           {token ? (
             <div className="dropdown dropdown-end">
-              <label
+              <label tabIndex={0}
                 htmlFor="inputField"
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
                   <img src={photo} alt="img" />
                 </div>
+                
               </label>
-              <ul className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+              <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                 <li>
                   <Button
-                    onClick={() => props.setOpenModal("profil")}
+                    onClick={() => document.getElementById('show_profil').showModal()}
                     className="justify-between"
                   >
                     Profile
-                    <span className="badge">New</span>
                   </Button>
-                  <Modal
-                    show={props.openModal === "profil"}
-                    size="md"
-                    popup
-                    onClose={() => props.setOpenModal(undefined)}
-                  >
-                    <Modal.Header />
-                    <Modal.Body>
-                      <Profil username={name} email={mail} />
-                    </Modal.Body>
-                  </Modal>
                 </li>
+                <dialog id="show_profil" className="modal">
+                  <div className="modal-box">
+                    <form method="dialog">
+                      {/* if there is a button in form, it will close the modal */}
+                      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <Profil username={name} email={mail} />
+                  </div>
+                </dialog>
                 <li>
                   <a>Settings</a>
                 </li>

@@ -34,9 +34,7 @@ const Profil = (props) => {
         </Dropdown>
       </div>
       <div className="flex flex-col items-center pb-10">
-        <No
-          Display
-          Name
+        <img Display Name
           alt="Bonnie image"
           className="mb-3 rounded-full shadow-lg"
           height="96"

@@ -6,10 +6,10 @@ import { FiArrowRight } from "react-icons/fi";
 import G1 from "../../Assets/images/group/g1.png";
 import G2 from "../../Assets/images/group/g2.png";
 import G3 from "../../Assets/images/group/g3.png";
-import P1 from "../../Assets/images/posts/post1.png";
-import P2 from "../../Assets/images/posts/post2.png";
+// import P1 from "../../Assets/images/posts/post1.png";
+// import P2 from "../../Assets/images/posts/post2.png";
 import photo from "../../Assets/images/avatar/avatar-s-11.jpg";
-import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
+// import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
 import ThumbDownOffAltRoundedIcon from "@mui/icons-material/ThumbDownOffAltRounded";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
@@ -22,7 +22,10 @@ function Body({ posts }) {
     justifyContent: "space-between",
     flexBasis: "auto",
   };
-
+  const getImg = (imgName) => {
+    // return 'https://pedbackend.onrender.com/blogImages/' + imgName;
+    return 'https://pedbackend.onrender.com/blogImages/20230924_153052.010_cat.jpg';
+  }
   return (
     <>
       <div className="relative isolate px-6 pt-14 lg:px-8">
@@ -104,11 +107,11 @@ function Body({ posts }) {
             </button>
           </div>
           {/* </div> */}
-          <div className="flex flex-col justify-center space-x-3 md:flex-row gap-4">
+          <div className="overflow-hidden overflow-x-auto flex flex-col justify-center space-x-3 md:flex-row gap-4">
             {posts.map((item) => (
-              <div key={item.id} className="card w-96 glass">
+              <div key={item.id} className="card w-96 scrollable-content  p-4 inline-block">
                 <figure className="px-1 pt-2">
-                  <img src={item.coverImage} alt="Shoes" className="rounded-xl" />
+                  <img src={'https://pedbackend.onrender.com/blogImages/' + item.coveImgName} alt="Cover Image" className="rounded-xl" />
                 </figure>
                 <h2 className="card-title m-2 text-2xl">{item.title}</h2>
                 <div className="flex space-x-3 p-3">
@@ -124,10 +127,10 @@ function Body({ posts }) {
                 </div>
                 <div className="card-body pl-3 pt-3">
                   <p>
-                   {item.content}
+                    {item.content ? item.content.slice(0, 100) : ''}
                   </p>
                   <div>
-                    
+
                     <div className="card-actions justify-start badge badge-outline ">
                       {item.tags}
                     </div>
