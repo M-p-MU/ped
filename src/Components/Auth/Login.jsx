@@ -18,7 +18,7 @@ function generateRandomString(length) {
 }
 
 function Login() {
-  const { userData, setUserData } = useStateContext();
+  // const { userData, setUserData } = useStateContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -26,7 +26,7 @@ function Login() {
   // alert(user);
   // get email from login option
   const location = useLocation();
- 
+
   // setMail(email);
   // console.log(email);
 
@@ -71,26 +71,26 @@ function Login() {
           alert("Login successfully !");
           // Create a new user object with updated values
           const data = response.data;
-          const user = jwt_decode(data.token);
-          if(user){
-            if(user.input.emailVerified){
-              const newUser = {
-                id: data.user._id,
-                username: data.user.username,
-                email: data.user.email,
-                token: data.token,
-              };
-              console.log(newUser);
-              // updateUserDetails(newUser);
-              // setUserData({ newUser });
-    
-              sessionStorage.setItem('authToken', data.token);
-              navigate('/');
-            }else{
-              alert("Your account is not activate, please verified your mail to activate your account.");
-            }
-          }
-          
+          // const user = jwt_decode(data.token);
+          // if (user) {
+          //   if (user.input.emailVerified) {
+          const newUser = {
+            id: data.user._id,
+            username: data.user.username,
+            email: data.user.email,
+            token: data.token,
+          };
+          console.log(newUser);
+          // updateUserDetails(newUser);
+          // setUserData({ newUser });
+
+          sessionStorage.setItem('authToken', data.token);
+          navigate('/');
+        } else {
+          alert("Your account is not activate, please verified your mail to activate your account.");
+          //   }
+          // }
+
         }
       } else {
         alert("Something wrong while login, please try again !");

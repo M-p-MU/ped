@@ -111,7 +111,7 @@ function Body({ posts }) {
             {posts.map((item) => (
               <div key={item.id} className="card w-96 scrollable-content  p-4 inline-block">
                 <figure className="px-1 pt-2">
-                  <img src={'https://pedbackend.onrender.com/blogImages/' + item.coveImgName} alt="Cover Image" className="rounded-xl" />
+                  <img src={'https://pedbackend.onrender.com/blogImages/' + item.coverImage} alt="Cover Image" className="rounded-xl" />
                 </figure>
                 <h2 className="card-title m-2 text-2xl">{item.title}</h2>
                 <div className="flex space-x-3 p-3">

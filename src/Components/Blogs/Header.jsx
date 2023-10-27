@@ -1,8 +1,4 @@
-import React, { useState, useEffect } from 'react'
-// import logo from '../../Assets/images/logo3.png'
-// import { IoLogoYoutube } from "react-icons/io5";
-// import { useNavigate } from 'react-router-dom';
-// import { FiArrowRight } from "react-icons/fi";
+import React, { useState, useEffect } from 'react';
 import photo from '../../Assets/images/avatar/avatar-s-11.jpg';
 import { Link } from "react-router-dom";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -12,13 +8,9 @@ import Profil from "../Landing/Profil";
 
 
 function Header(props) {
-  // const navigate = useNavigate();
-  const [openModal, setOpenModal] = useState();
   const [mail, setMail] = useState();
   const [name, setName] = useState();
   // const props = { openModal, setOpenModal };
-
-  // console.log(props.email);
   const token = sessionStorage.getItem("authToken");
   useEffect(() => {
     if (token) {
@@ -77,10 +69,13 @@ function Header(props) {
                   </div>
                 </dialog>
                 <li>
+                  <Link to='/blg/blogs'>My Blogs</Link>
+                </li>
+                <li>
                   <a>Settings</a>
                 </li>
                 <li>
-                  <Button onClick={() => Document.getElementById("logout").showModal()}>
+                  <Button onClick={() => props.setOpenModal("pop-up")}>
                     Logout
                   </Button>
                 </li>
@@ -95,7 +90,7 @@ function Header(props) {
                     <div className="modal-action">
                       <form method="dialog" className='gap-2'>
                         {/* if there is a button in form, it will close the modal */}
-                        <button className="btn btn-sm">Confirm</button>
+                        <button onClick={() => logout()} className="btn btn-sm">Confirm</button>
                         <button className="btn btn-outline btn-error btn-sm">Cancel</button>
                       </form>
                     </div>

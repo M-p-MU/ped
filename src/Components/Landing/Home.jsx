@@ -24,6 +24,7 @@ const Home = () => {
   };
   // console.log(props.email);
   const token = sessionStorage.getItem("authToken");
+  console.log(token);
   useEffect(() => {
     if (token) {
       const user = jwt_decode(token);
@@ -71,7 +72,7 @@ const Home = () => {
                 <div className="w-10 rounded-full">
                   <img src={photo} alt="img" />
                 </div>
-                
+
               </label>
               <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                 <li>
@@ -92,40 +93,33 @@ const Home = () => {
                   </div>
                 </dialog>
                 <li>
+                  <Link to='/blg/blogs'>My Blogs</Link>
+                </li>
+                <li>
                   <a>Settings</a>
                 </li>
                 <li>
-                  <Button onClick={() => props.setOpenModal("pop-up")}>
+                  <button onClick={logout()}>
                     Logout
-                  </Button>
-                  <Modal
-                    show={props.openModal === "pop-up"}
-                    size="md"
-                    popup
-                    onClose={() => props.setOpenModal(undefined)}
-                  >
-                    <Modal.Header />
-                    <Modal.Body>
-                      <div className="text-center">
-                        <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200" />
-                        <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                          Are you sure you want to logout?
-                        </h3>
-                        <div className="flex justify-center gap-4">
-                          <Button color="failure" onClick={() => logout()}>
-                            Yes, I&apos;m sure
-                          </Button>
-                          <Button
-                            color="gray"
-                            onClick={() => props.setOpenModal(undefined)}
-                          >
-                            No, cancel
-                          </Button>
-                        </div>
-                      </div>
-                    </Modal.Body>
-                  </Modal>
+                  </button>
                 </li>
+                <dialog id="logout" className="modal">
+                  <div className="modal-box">
+                    <form method="dialog">
+                      {/* if there is a button in form, it will close the modal */}
+                      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <h3 className="font-bold text-lg">Confirmation</h3>
+                    <p className="py-4">Are you sure that you want to delete this blog ?</p>
+                    <div className="modal-action">
+                      <form method="dialog" className='gap-2'>
+                        {/* if there is a button in form, it will close the modal */}
+                        <button onClick={() => logout()} className="btn btn-sm">Confirm</button>
+                        <button className="btn btn-outline btn-error btn-sm">Cancel</button>
+                      </form>
+                    </div>
+                  </div>
+                </dialog>
               </ul>
             </div>
           ) : (

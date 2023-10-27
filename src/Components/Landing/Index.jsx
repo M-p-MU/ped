@@ -25,7 +25,7 @@ const Index = () => {
         title: item.title,
         content: item.content,
         tag: item.tag,
-        coverImage: item.images,
+        coverImage: item.image,
         comments: item.comments,
         shares: item.shares,
         views: item.view,
