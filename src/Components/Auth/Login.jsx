@@ -84,7 +84,7 @@ function Login() {
           // updateUserDetails(newUser);
           // setUserData({ newUser });
 
-          sessionStorage.setItem('authToken', data.token);
+          sessionStorage.setItem('authToken', newUser.token);
           navigate('/');
         } else {
           alert("Your account is not activate, please verified your mail to activate your account.");
