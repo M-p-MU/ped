@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import '../../styles/auth/index.css';
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
-import { useStateContext } from "../../contexts/ContextProvider";
 import GlobalApi from "../../Services/GlobalApi";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import jwt_decode from "jwt-decode";
 
 function generateRandomString(length) {
   const characters =
@@ -18,21 +15,18 @@ function generateRandomString(length) {
 }
 
 function Login() {
-  // const { userData, setUserData } = useStateContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const navigate = useNavigate();
-  // alert(user);
-  // get email from login option
-  const location = useLocation();
-
-  // setMail(email);
-  // console.log(email);
-
   const [captchaText, setCaptchaText] = useState(generateRandomString(6));
   const [userInput, setUserInput] = useState("");
   const [isCaptchaValid, setIsCaptchaValid] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      window.location.href = '/';
+    }
+  }, []);
 
   const regenerateCaptcha = () => {
     const newCaptcha = generateRandomString(6);
@@ -41,66 +35,22 @@ function Login() {
     setIsCaptchaValid(false);
   };
 
-  // Function to update user details
-  // const updateUserDetails = (user) => {
-  //   // Update the user details using setUser
-  //   setUserData(user);
-  // };
-
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
     const isValid = e.target.value === captchaText;
     setIsCaptchaValid(isValid);
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (isCaptchaValid) {
-    //   alert(`========= TEST ===========\n   login: ${email}`);
-    // }
     const loginData = {
       email,
       password,
     };
     try {
-      const response = await GlobalApi.loginUser(loginData);
-      console.log("Login response: " + response);
-      // if(response)
-      console.log(response.data);
-      if (response.data) {
-        if (response.data.message === "User logged in successfully.") {
-          alert("Login successfully !");
-          // Create a new user object with updated values
-          const data = response.data;
-          // const user = jwt_decode(data.token);
-          // if (user) {
-          //   if (user.input.emailVerified) {
-          const newUser = {
-            id: data.user._id,
-            username: data.user.username,
-            email: data.user.email,
-            token: data.token,
-          };
-          console.log(newUser);
-          // updateUserDetails(newUser);
-          // setUserData({ newUser });
-
-          sessionStorage.setItem('authToken', newUser.token);
-          navigate('/');
-        } else {
-          alert("Your account is not activate, please verified your mail to activate your account.");
-          //   }
-          // }
-
-        }
-      } else {
-        alert("Something wrong while login, please try again !");
-      }
-      // setUser({
-      //   response,
-      // });
-      // navigate(`/login?email=${email}`);
+      await GlobalApi.loginUser(loginData);
     } catch (error) {
-      console.log("Registration Failed: " + error);
+      console.log("Login Failed: " + error);
     }
   };
 

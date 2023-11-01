@@ -3,85 +3,98 @@
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import ImageUpload from '../../../Components/blogers/ImageUpload';
 import TextInput from '../../../Components/blogers/TextInput';
-
-import React, { useState,useRef  } from 'react';
+import axios from "axios";
+import React, { useState, useRef } from 'react';
 
 const Create = () => {
   const editorRef = useRef(null);
-  const [blogData, setBlogData] = useState({
-    title: '',
-    image: '',
-    content: '', // We'll store the content here
-  });
+  const [title, setTitle] = useState();
+  const [content, setContent] = useState('');
+  const [image, setImage] = useState(null);
 
-  // Function to get the content from the RichTextEditor
-  const getEditorContent = () => {
-    if (editorRef.current) {
-      const content = editorRef.current.getContent();
-      return content;
-    }
-    return ''; // Return an empty string if editorRef is not yet available
-  };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setBlogData({
-      ...blogData,
-      [name]: value,
-    });
+  const handleContentChange = (args) => {
+    const updatedContent = args.value;
+    setContent(updatedContent);
   };
 
   const submit = () => {
-    // Get the content from the RichTextEditor
-    const editorContent = getEditorContent();
-
-    // Update the blogData with the content
-    setBlogData({
-      ...blogData,
-      content: editorContent,
-    });
-
-    // Now, you can send the updated blogData to your API
-    fetch('https://pedbackend.onrender.com/api/v1/ped/blogs', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(blogData),
-    })
-      .then((response) => {
-        if (response.ok) {
-          // The request was successful, you can handle success here
-          console.log('Blog data sent successfully');
-        } else {
-          // The request failed, handle errors here
-          console.error('Failed to send blog data');
-        }
-      })
-      .catch((error) => {
-        // Handle any network-related errors
-        console.error('Network error:', error);
-      });
+    const blog = {
+      title,
+      content,
+      image,
+    }
   };
-  
+  // 
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+  };
+
+  const handleImageUpload = async () => {
+    if (!title) {
+      alert("Please enter the title of this blog")
+      return;
+    }
+    if (!content) {
+      alert("Please enter the content of this blog")
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('image', image);
+
+    const authToken = localStorage.getItem('authToken');
+
+    try {
+      const response = await axios.post('https://pedbackend.onrender.com/api/v1/ped/blogs', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${authToken}`,
+        },
+      });
+
+      // Assuming the API returns the image URL in the response
+      const newBlog = response.data;
+
+      // You can use the imageUrl as needed in your component
+      console.log('Newblog URL:', newBlog);
+    } catch (error) {
+      console.error('Error uploading the image:', error);
+    }
+  };
+  // 
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       {/* Rest of your component code */}
       <div className='mb-6'>
-        <TextInput label="Blog Title" name="title" value={blogData.title} onChange={handleInputChange} />
+        <div className="mb-6">
+          <label htmlFor="default-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Blog title</label>
+          <input type="text" id="default-input" value={title} onChange={(e) => setTitle(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+        </div>
       </div>
       <div className='mb-6'>
         <label htmlFor="default-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Blog Image Cover</label>
-        <ImageUpload name="image" value={blogData.image} onChange={handleInputChange} />
+        {/* <ImageUpload name="image" onChange={(file) => setImage(file)} /> */}
+        <input type="file" accept="image/*" onChange={handleImageChange} />
+        {image && <img src={image} alt="Selected Image" className="mt-2" />}
       </div>
       <div className='mb-6'>
         <label htmlFor="default-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Blog Body</label>
-        <RichTextEditorComponent  ref={editorRef}>
+        <RichTextEditorComponent 
+          change={handleContentChange}>
           <Inject services={[HtmlEditor, Toolbar, Image, Link, QuickToolbar]} />
-        </RichTextEditorComponent>+
+        </RichTextEditorComponent>
+        <div>
+          <h3>Content:</h3>
+          <div dangerouslySetInnerHTML={{ __html: content }}></div>
+        </div> 
       </div>
-      <div className  ="justify-end">
-        <button type="button" onClick={submit} className  ="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover-bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Save</button>
+      <div className="justify-end">
+        <button type="button" onClick={handleImageUpload} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover-bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Save</button>
       </div>
     </div>
   );

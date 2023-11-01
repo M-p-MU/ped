@@ -37,9 +37,8 @@ function SideBar() {
         <img
           src={Control}
           alt="img"
-          className={`absolute cursor-pointer -right-3 w-7 border-2 top-9 border-base rounded-full ${
-            !open && "rotate-180"
-          }`}
+          className={`absolute cursor-pointer -right-3 w-7 border-2 top-9 border-base rounded-full ${!open && "rotate-180"
+            }`}
           onClick={() => setOpen(!open)}
         />
         <div className={`flex gap-x-4 items-center`}>
@@ -51,9 +50,8 @@ function SideBar() {
                     `}
           />
           <h1
-            className={`text-white origin-left font-medium text-xl duration-300 ${
-              !open && "scale-0"
-            }`}
+            className={`text-white origin-left font-medium text-xl duration-300 ${!open && "scale-0"
+              }`}
           >
             Ped
           </h1>
@@ -62,9 +60,8 @@ function SideBar() {
           {Menus.map((menu, index) => (
             <li
               key={index}
-              className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-gray-600 rounded-md ${
-                menu.gap ? "mt-9" : "mt-2"
-              }`}
+              className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-gray-600 rounded-md ${menu.gap ? "mt-9" : "mt-2"
+                }`}
             >
               {/* Check if the menu item has a modal */}
               {menu.modal ? (
@@ -78,27 +75,29 @@ function SideBar() {
                   </span>
                 </>
               ) : // If not a modal, check if it has a "to" property for routing
-              menu.to ? (
-                // Render a Link component if "to" is provided
-                <Link to={menu.to}>
-                  {menu.src}
+                menu.to ? (
+                  // Render a Link component if "to" is provided
+                  <>
+                  { menu.src }
                   <span
                     className={`${!open && "hidden"} origin-left duration-200`}
                   >
-                    {menu.title}
-                  </span>
-                </Link>
-              ) : (
-                // If neither modal nor routing, just render the content and title
-                <>
-                  {menu.src}
-                  <span
-                    className={`${!open && "hidden"} origin-left duration-200`}
-                  >
-                    {menu.title}
-                  </span>
-                </>
-              )}
+                    <Link to={menu.to}>
+                      {menu.title}
+                    </Link>
+                    </span>
+                  </>
+                ) : (
+                  // If neither modal nor routing, just render the content and title
+                  <>
+                    {menu.src}
+                    <span
+                      className={`${!open && "hidden"} origin-left duration-200`}
+                    >
+                      {menu.title}
+                    </span>
+                  </>
+                )}
             </li>
           ))}
         </ul>

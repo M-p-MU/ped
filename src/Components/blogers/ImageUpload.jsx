@@ -1,6 +1,19 @@
 import React from 'react'
 
-function ImageUpload() {
+function ImageUpload({ onChange }) {
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+
+    // Check if a file was selected
+    if (selectedFile) {
+      // Assuming you want to display the selected image, you can create a URL
+      const imageUrl = URL.createObjectURL(selectedFile);
+
+      // Update the parent component's state with the selected image
+      onChange(imageUrl);
+    }
+  };
+
   return (
     <>
       <div className="flex items-center justify-center w-full">
@@ -12,7 +25,13 @@ function ImageUpload() {
             <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> or drag and drop</p>
             <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
           </div>
-          <input id="dropzone-file" type="file" className="hidden" />
+          <input
+            id="dropzone-file"
+            type="file"
+            className="hidden"
+            onChange={handleFileChange}
+          />
+          {/* <input id="dropzone-file" type="file" className="hidden" /> */}
         </label>
       </div>
     </>

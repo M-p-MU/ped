@@ -40,7 +40,7 @@ const Index = () => {
 
   return (
     <div>
-      <Home email={email} />
+      <Home />
       <Body posts={posts} />
       <Footer />
     </div>
