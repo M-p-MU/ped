@@ -31,8 +31,7 @@ function SideBar() {
   return (
     <>
       <div
-        className={`${open ? "w-72" : "w-20"} 
-            p-5 pt-8 fixed duration-300 h-screen bg-black relative`}
+        className={`fixed ${open ? "w-72" : "w-20"} h-screen p-5 pt-8 duration-300 bg-black relative`}
       >
         <img
           src={Control}

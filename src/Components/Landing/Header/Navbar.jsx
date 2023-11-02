@@ -12,7 +12,7 @@ const Navbar = () => {
     // const [token, setToken] = useState(localStorage.getItem("authToken"));
 
     const logout = () => {
-        sessionStorage.removeItem("authToken");
+        localStorage.removeItem("authToken");
         window.location.reload();
     };
 

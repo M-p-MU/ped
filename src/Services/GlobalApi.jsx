@@ -60,7 +60,7 @@ const myBlogs = async (userId) => {
     // Set the 'Authorization' header with the token
     const config = {
       headers: {
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `${token}`,
       },
       params: {
         userId: userId,

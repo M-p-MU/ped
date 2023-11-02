@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar';
 import SideBar from './SideBar';
 
 function Index() {
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      window.location.href = '/';
+    }
+  }, [])
+
   return (
     <>
       {/* <Router> */}
