@@ -24,14 +24,17 @@ const Index = () => {
         id: item._id,
         title: item.title,
         content: item.content,
-        tag: item.tag,
+        tags: item.tag ? item.tags : "News",
         coverImage: item.image,
         comments: item.comments,
+        likes: item.likes,
+        authorId: item.authorId,
+        blogger: item.author,
         shares: item.shares,
         views: item.view,
-        likes: item.likes,
-        tags: item.tag,
-        blogger: item.bloggerName,
+        // tags: item.tag,
+        createdAt: item.createdAt,
+        updatedAt: item.updatedAt
       }));
       setPosts(result);
     })

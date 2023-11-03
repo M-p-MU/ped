@@ -50,24 +50,25 @@ const loginUser = async (userData) => {
 // /api/v1 / ped / blogs / by - owner / { id }
 // Get blogs by owner or admin with optional pagination.
 const myBlogs = async (userId) => {
-  try {
-    const token = localStorage.getItem("authToken");
-    if (!token) {
-      // Handle the case when there's no token available, e.g., redirect to login page
-      throw new Error("No authorization token found.");
-    }
 
+  const formData = new FormData();
+  formData.append("userId", userId);
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    // Handle the case when there's no token available, e.g., redirect to login page
+    throw new Error("No authorization token found.");
+  }
+
+  try {
+    
     // Set the 'Authorization' header with the token
     const config = {
       headers: {
-        'Authorization': `${token}`,
-      },
-      params: {
-        userId: userId,
+        Authorization: `Bearer ${token}`,
       },
     };
 
-    const response = await axios.get(BASE_URL_PED + "/api/v1/ped/blogs/by-owner", config);
+    const response = await axios.get(BASE_URL_PED + "/api/v1/ped/blogs/by-owner", formData, config);
 
     // Access the data from the response object
     const responseData = response.data;
