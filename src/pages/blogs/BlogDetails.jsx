@@ -48,7 +48,7 @@ function BlogDetails() {
                         href="#"
                         className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                     >
-                        {post.tag.lenght === 0 ? "TAG" : post.tag.split()[0]}
+                        {post.tag ? "TAG" : post.tag}
                         {/* {post.category.title} */}
                     </a>
                 </h3>
