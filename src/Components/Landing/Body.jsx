@@ -1,28 +1,18 @@
 import React from "react";
-
 import { Link, useNavigate } from "react-router-dom";
-
 import { FiArrowRight } from "react-icons/fi";
 import G1 from "../../Assets/images/group/g1.png";
 import G2 from "../../Assets/images/group/g2.png";
 import G3 from "../../Assets/images/group/g3.png";
-// import P1 from "../../Assets/images/posts/post1.png";
-// import P2 from "../../Assets/images/posts/post2.png";
 import photo from "../../Assets/images/avatar/avatar-s-11.jpg";
-// import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
 import ThumbDownOffAltRoundedIcon from "@mui/icons-material/ThumbDownOffAltRounded";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import OutlinedFlagRoundedIcon from "@mui/icons-material/OutlinedFlagRounded";
-// import DropdownItemsWithIcon from "./DropdownItemsWithIcon";
+
 
 function Body({ posts }) {
   const navigate = useNavigate();
-
-  const format = (date) => {
-
-    return //;
-  }
   const styleBox = {
     display: "flex",
     justifyContent: "space-between",

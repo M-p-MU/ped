@@ -89,7 +89,7 @@ const myBlogs = async (userId) => {
       },
     };
 
-    const response = await axios.get(BASE_URL_PED + "/api/v1/ped/blogs/by-owner", formData, config);
+    const response = await axios.get(BASE_URL_PED + "/v1/ped/blogs/by-owner/" + userId , config);
 
     // Access the data from the response object
     const responseData = response.data;
@@ -118,7 +118,6 @@ export default {
   getPostsById,
   getBlogsPag,
   registerUser,
-  // getBlogs,
   getMostTenBlogs,
   loginUser,
   myBlogs,
