@@ -30,6 +30,9 @@ function BlogDetail() {
     return (
         <>
             <Header />
+            <div>
+
+            </div>
             <div className='px-6 md:px-20 lg:px-56 mt-10'>
                 <h3 className='text-red-500 text-[12px]'>{post.tag}</h3>
                 <h3 className='text-[23px] font-bold'>{post.title}</h3>
