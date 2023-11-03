@@ -15,6 +15,7 @@ import blg_routes from './Components/blogers/routes/index';
 
 import Home from './pages/blogs/Home';
 import BlogDetail from './pages/blogs/BlogDetail';
+import BlogDetails from './pages/blogs/BlogDetails';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         {/* USER */}
         <Route path="/us/blogs" element={<Home />}></Route>
         <Route path="/us/blogs/blog-detail/:id" element={<BlogDetail />}></Route>
+        <Route path="/blog-detail/:id" element={<BlogDetails />}></Route>
 
 
         {/* TEST */}

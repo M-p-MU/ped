@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import GlobalApi from '../../Services/GlobalApi';
 import Header from '../../Components/Blogs/Header';
 // import { Markdown } from 'react-markdown';
+import photo from "../../Assets/images/avatar/avatar-s-11.jpg";
 
 function BlogDetail() {
     const { id } = useParams();
@@ -37,8 +38,8 @@ function BlogDetail() {
                 <h3 className='text-red-500 text-[12px]'>{post.tag}</h3>
                 <h3 className='text-[23px] font-bold'>{post.title}</h3>
                 <div className='flex items-center mt-5'>
-                    <img src="https://courses.tubeguruji.com/static/media/logo.8f2db318fe31ffaf5793.png"
-                        alt='' className='w-[35px] rounded-full' />
+                    <img src={photo} alt='' className='w-[35px] rounded-full' />
+                    {/* <img src="https://courses.tubeguruji.com/static/media/logo.8f2db318fe31ffaf5793.png" alt='' className='w-[35px] rounded-full' /> */}
                     <div className='ml-2'>
                         <h3 className='font-bold text-[12px]'>Tubeguruji</h3>
                         <h3 className='text-gray-500 text-[10px]'>24 Sept 2024</h3>

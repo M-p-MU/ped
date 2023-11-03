@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { FiArrowRight } from "react-icons/fi";
 import G1 from "../../Assets/images/group/g1.png";
@@ -14,9 +14,11 @@ import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineR
 import ThumbDownOffAltRoundedIcon from "@mui/icons-material/ThumbDownOffAltRounded";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import OutlinedFlagRoundedIcon from "@mui/icons-material/OutlinedFlagRounded";
-import DropdownItemsWithIcon from "./DropdownItemsWithIcon";
+// import DropdownItemsWithIcon from "./DropdownItemsWithIcon";
 
 function Body({ posts }) {
+  const navigate = useNavigate();
+
   const format = (date) => {
 
     return //;
@@ -161,7 +163,7 @@ function Body({ posts }) {
             </div>
             <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               {posts.map((post) => (
-                <article key={post.id} className="flex max-w-xl flex-col items-start justify-between">
+                <article key={post.id} className="flex max-w-xl flex-col items-start justify-between" onClick={() => navigate('blog-detail/' + post.id)}>
                   <img src={'https://pedbackend.onrender.com/blogImages/' + post.coverImage} className='w-full rounded-2xl
            object-cover h-[200px]'/>
                   <div className="flex items-center gap-x-4 text-xs">

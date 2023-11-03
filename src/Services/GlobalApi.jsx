@@ -1,5 +1,24 @@
 import axios from "axios";
 
+
+/**
+ * FORMATING DATE
+ */
+const formatDate = (dateString) => {
+
+  const date = new Date(dateString);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = date.toLocaleString('default', { month: 'short' });
+  const year = date.getFullYear();
+  const formattedDate = `${day} ${month} ${year}`;
+
+  // const options = { year: 'numeric', month: 'short', day: 'numeric' };
+  // const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+  return formattedDate;
+}
+///end formating date
+
+
 // const BASE_URL='http://localhost:1337/api';
 const BASE_URL = "https://tubeguruji-admin.herokuapp.com/api";
 const BASE_URL_PED = "https://pedbackend.onrender.com/api";
@@ -7,6 +26,8 @@ const BASE_URL_PED = "https://pedbackend.onrender.com/api";
 const getPost = axios.get(BASE_URL + "/blogs?populate=*");
 const getPostById = (id) =>
   axios.get(BASE_URL + "/blogs/" + id + "?populate=*");
+const getPostsById = (id) =>
+  axios.get(BASE_URL_PED + "/v1/ped/blogs/" + id );
 
 /**
  *  PED API'S
@@ -91,8 +112,10 @@ const getUsers = axios.get(BASE_URL_PED + "");
 
 // end
 export default {
+  formatDate,
   getPost,
   getPostById,
+  getPostsById,
   getBlogsPag,
   registerUser,
   // getBlogs,
