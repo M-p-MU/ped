@@ -118,7 +118,7 @@ function Login() {
                     )}
                   </div>
                   <label htmlFor="forgot-pwd" className="label">
-                    <a href="#" className="label-text-alt link link-hover">
+                    <a href="/login-opt" className="label-text-alt link link-hover">
                       Forgot password?
                     </a>
                   </label>

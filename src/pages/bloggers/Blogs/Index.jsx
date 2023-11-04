@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TiPipette } from "react-icons/ti";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -14,7 +14,10 @@ const Index = () => {
   const [previousPage, setPreviousPage] = useState(1);
   const [userId, setUserId] = useState();
   const authToken = localStorage.getItem("authToken");
-
+  const navigate = useNavigate();
+const readBlog =(url)=>{
+  window.location.href = url;
+}
   useEffect(() => {
     if (authToken) {
       const user = jwt_decode(authToken);
@@ -89,8 +92,7 @@ function getRandomImageURL(images) {
   return images[randomIndex];
 }
   const editBlog = (blogId) => {
-    // Use React Router for navigation
-    // Example: history.push(`/blg/blogs-edit/${blogId}`);
+   navigate(`/blg/blogs-edit/${blogId}`);
   };
 
   return (
@@ -114,7 +116,7 @@ function getRandomImageURL(images) {
           <div>
             <div className="flex flex-wrap items-stretch space-x-3 md:flex-row gap-4">
               {posts.map((post) => (
-                <div className="card w-96 glass" key={post.id}>
+                <div className="card w-96 glass" key={post.id} onClick={()=> readBlog('/blog-detail/' + post.id)}>
                   <figure>
                     <img src={getRandomImageURL(images)}
                       alt="Blog Image" />

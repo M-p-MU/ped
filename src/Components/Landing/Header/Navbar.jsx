@@ -8,6 +8,7 @@ import Profil from "../Profil";
 const Navbar = () => {
     const [mail, setMail] = useState();
     const [name, setName] = useState();
+    const [isVerify, setIsVerify] = useState(false);
     const authToken = localStorage.getItem("authToken");
     // const [token, setToken] = useState(localStorage.getItem("authToken"));
 
@@ -30,6 +31,7 @@ const Navbar = () => {
             if (user) {
                 setName(user.input.username);
                 setMail(user.input.email);
+                setIsVerify(user.input.emailVerified);
                 // alert("========== OK ==========")
             }
         }
@@ -89,9 +91,11 @@ const Navbar = () => {
                                         <Profil username={name} email={mail} />
                                     </div>
                                 </dialog>
+                                {isVerify && 
                                 <li>
                                     <Link to='/blg/blogs'>My Blogs</Link>
-                                </li>
+                                </li>}
+                                
                                 <li>
                                     <a>Settings</a>
                                 </li>

@@ -165,7 +165,7 @@ function getRandomImageURL(images) {
             <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               {posts.map((post) => (
                 <article key={post.id} className="flex max-w-xl flex-col items-start justify-between" onClick={() => navigate('blog-detail/' + post.id)}>
-                  <img src={getRandomImageURL(images)} className='w-full rounded-2xl
+                  <img src={getRandomImageURL(images)} className='rounded-tl-2xl rounded-tr-2xl mt-5 mb-5 w-full
            object-cover h-[200px]'/>
            {/* <img src={'https://pedbackend.onrender.com/blogImages/' + post.coverImage} className='w-full rounded-2xl
            object-cover h-[200px]'/> */}

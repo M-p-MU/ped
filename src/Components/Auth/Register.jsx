@@ -11,7 +11,7 @@ import GlobalApi from "../../Services/GlobalApi";
 
 function Register() {
   const navigate = useNavigate();
-  const { user, setUser } = useStateContext();
+  const { user } = useStateContext();
   // const { user, setUser } = useStateContext();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -28,7 +28,7 @@ function Register() {
       alert("Password should be at least 6 characters !");
       return false;
     } else {
-      if (password != confirmPassword) {
+      if (password !== confirmPassword) {
         status = false;
         alert("Password and confiirm password most be same !");
         return false;
@@ -66,6 +66,7 @@ function Register() {
       // );
       try {
         const response = await GlobalApi.registerUser(registrationData);
+        console.log(response);
         alert("To complete this registration prcess, check you mail and click on the verified link so that you will able login.\nPlease try again if your are not receiving a mail within 5 minutes and make sure you enter valid email.");
         // if (response) {
         //   if (response.status === "Pending") {
