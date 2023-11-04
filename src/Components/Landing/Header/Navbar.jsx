@@ -16,6 +16,13 @@ const Navbar = () => {
         window.location.reload();
     };
 
+    const loginAction = () => {
+        window.location.href = '/login';
+    }
+    const registerAction = () => {
+        window.location.href = '/register';
+    }
+
     useEffect(() => {
         console.log(authToken);
         if (authToken) {
@@ -114,18 +121,18 @@ const Navbar = () => {
                         </div>
                     ) : (
                         <div className="flex items-center justify-center gap-x-6">
-                            <Link
-                                to="login"
+                            <button
+                                onClick={loginAction}
                                 className="text-sm font-semibold leading-6 text-gray-900 hover:bg-slate-400 hover:text rounded-full px-3.5 py-1"
                             >
                                 Sign in
-                            </Link>
-                            <Link
-                                to="register"
+                            </button>
+                            <a
+                               href="http://localhost:3000/register"
                                 className="rounded-full bg-black px-3.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
                                 Register
-                            </Link>
+                            </a>
                         </div>
                     )}
                 </div>

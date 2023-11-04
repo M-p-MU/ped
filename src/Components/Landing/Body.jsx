@@ -9,15 +9,26 @@ import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineR
 import ThumbDownOffAltRoundedIcon from "@mui/icons-material/ThumbDownOffAltRounded";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import OutlinedFlagRoundedIcon from "@mui/icons-material/OutlinedFlagRounded";
-
+import GlobalApi from '../../Services/GlobalApi';
 
 function Body({ posts }) {
   const navigate = useNavigate();
+  
   const styleBox = {
     display: "flex",
     justifyContent: "space-between",
     flexBasis: "auto",
   };
+  
+  const images = ['https://res.cloudinary.com/dknvsbuyy/image/upload/v1684171793/angular_vs_react_1024x512_12233d6004.png',
+'https://res.cloudinary.com/dknvsbuyy/image/upload/v1684171980/How_to_stay_focused_on_Revenue_Marketing_Practices_4_d128dc86aa.jpg',
+'https://res.cloudinary.com/dknvsbuyy/image/upload/v1684246282/97069080_d012_11ea_9317_a871d5105486_f2df24134c.png',
+'https://res.cloudinary.com/dknvsbuyy/image/upload/v1684246461/CM_Flutter_vs_RN_81f074bfd9.jpg'];
+
+function getRandomImageURL(images) {
+  const randomIndex = Math.floor(Math.random() * images.length);
+  return images[randomIndex];
+}
   const getImg = (imgName) => {
     // return 'https://pedbackend.onrender.com/blogImages/' + imgName;
     return 'https://pedbackend.onrender.com/blogImages/20230924_153052.010_cat.jpg';
@@ -154,12 +165,14 @@ function Body({ posts }) {
             <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               {posts.map((post) => (
                 <article key={post.id} className="flex max-w-xl flex-col items-start justify-between" onClick={() => navigate('blog-detail/' + post.id)}>
-                  <img src={'https://pedbackend.onrender.com/blogImages/' + post.coverImage} className='w-full rounded-2xl
+                  <img src={getRandomImageURL(images)} className='w-full rounded-2xl
            object-cover h-[200px]'/>
+           {/* <img src={'https://pedbackend.onrender.com/blogImages/' + post.coverImage} className='w-full rounded-2xl
+           object-cover h-[200px]'/> */}
                   <div className="flex items-center gap-x-4 text-xs">
                     <time dateTime={post.createdAt} className="text-gray-500">
                       {/* <time dateTime={post.datetime} className="text-gray-500"> */}
-                      {post.createdAt}
+                      {GlobalApi.formatDate(post.createdAt) ? GlobalApi.formatDate(post.createdAt) : "24 Sept 2024"}
                     </time>
                     <a
                       href="#"

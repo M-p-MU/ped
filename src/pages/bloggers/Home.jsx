@@ -1,22 +1,42 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { BsCurrencyDollar } from 'react-icons/bs';
-import { GoDotFill } from 'react-icons/go';
+// import { GoDotFill } from 'react-icons/go';
 import { IoIosMore } from 'react-icons/io';
-import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
+// import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 
-import { Stacked, Pie, Button, LineChart, SparkLine } from '../../Components/admin';
-import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../../data/dummy';
+import {  Button} from '../../Components/admin';
+import { earningData, medicalproBranding, dropdownData } from '../../data/dummy';
 import { useStateContext } from '../../contexts/ContextProvider';
 import product9 from '../../Assets/data/product9.jpg';
 
-const DropDown = ({ currentMode }) => (
-  <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
-    <DropDownListComponent id="time" fields={{ text: 'Time', value: 'Id' }} style={{ border: 'none', color: (currentMode === 'Dark') && 'white' }} value="1" dataSource={dropdownData} popupHeight="220px" popupWidth="120px" />
-  </div>
-);
+// const DropDown = ({ currentMode }) => (
+//   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
+//     <DropDownListComponent id="time" fields={{ text: 'Time', value: 'Id' }} style={{ border: 'none', color: (currentMode === 'Dark') && 'white' }} value="1" dataSource={dropdownData} popupHeight="220px" popupWidth="120px" />
+//   </div>
+// );
 
 const Home = () => {
-  const { currentColor, currentMode } = useStateContext();
+
+  const [bestBlog, setBestBlog] = useState({});
+
+
+  useEffect(() => {
+    // Fetch image URLs for all posts
+    // const fetchImageUrls = async () => {
+    //   const urls = {};
+    //    for (const post of posts) {
+    //     const imageUrl = await getImgUrl(post.coverImage);
+    //     urls[post.id] = imageUrl;
+    //   }
+    //   setImageUrls(urls);
+    // };
+  
+    // fetchImageUrls();
+  // }, [posts]);
+}, []);
+  
+  
+  const { currentColor } = useStateContext();
 
   return (
     <div className="mt-24">
@@ -66,7 +86,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex gap-10 flex-wrap justify-center">
+      {/* <div className="flex gap-10 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <div className="flex justify-between">
             <p className="font-semibold text-xl">Revenue Updates</p>
@@ -149,9 +169,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex gap-10 m-4 flex-wrap justify-center">
+      {/* <div className="flex gap-10 m-4 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
           <div className="flex justify-between items-center gap-2">
             <p className="text-xl font-semibold">Recent Transactions</p>
@@ -202,18 +222,50 @@ const Home = () => {
             <LineChart />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="flex flex-wrap justify-center">
         <div className="md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
-            <p className="text-xl font-semibold">Weekly Stats</p>
+            <p className="text-xl font-semibold">Most viewed</p>
             <button type="button" className="text-xl font-semibold text-gray-500">
               <IoIosMore />
             </button>
           </div>
-
-          <div className="mt-10 ">
+          <div className="mt-3">
+          <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+          {/* <div className="flex justify-between">
+            <p className="text-xl font-semibold">Daily Activities</p>
+            <button type="button" className="text-xl font-semibold text-gray-500">
+              <IoIosMore />
+            </button>
+          </div> */}
+          <div className="mt-10">
+            <img
+              className="md:w-96 h-50 "
+              src={product9}
+              alt=""
+            />
+            <div className="mt-8">
+              <p className="font-semibold text-lg">React 18 coming soon!</p>
+              <p className="text-gray-400 ">By Johnathan Doe</p>
+              <p className="mt-8 text-sm text-gray-400">
+                This will be the small description for the news you have shown
+                here. There could be some great info.
+              </p>
+              <div className="mt-3">
+                <Button
+                  color="white"
+                  bgColor={currentColor}
+                  text="Read More"
+                  borderRadius="10px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+          {/* <div className="mt-10 ">
             {weeklyStats.map((item) => (
               <div key={item.title} className="flex justify-between mt-4 w-full">
                 <div className="flex gap-4">
@@ -236,7 +288,7 @@ const Home = () => {
             <div className="mt-4">
               <SparkLine currentColor={currentColor} id="area-sparkLine" height="160px" type="Area" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
             </div>
-          </div>
+          </div> */}
 
         </div>
         <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
@@ -294,7 +346,7 @@ const Home = () => {
             <p className="text-gray-400 text-sm">36 Recent Transactions</p>
           </div>
         </div>
-        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+        {/* <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Daily Activities</p>
             <button type="button" className="text-xl font-semibold text-gray-500">
@@ -324,7 +376,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

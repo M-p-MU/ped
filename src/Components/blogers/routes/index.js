@@ -32,7 +32,7 @@ const routes = [
         elt: <Create />
     },
     {
-        path: 'blogs-edit',
+        path: 'blogs-edit/:id',
         elt: <Update />
     },
     //Network

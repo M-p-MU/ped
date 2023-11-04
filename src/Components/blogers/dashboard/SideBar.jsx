@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 function SideBar() {
   const [open, setOpen] = useState(true);
   const Menus = [
-    { title: "Dashboard", src: <SpaceDashboardIcon />, modal: false, to: "" },
+    { title: "Dashboard", src: <SpaceDashboardIcon />, modal: false, to: "/blg" },
     {
       title: "Inbox",
       src: <LocalPostOfficeIcon />,
@@ -31,7 +31,7 @@ function SideBar() {
   return (
     <>
       <div
-        className={`fixed ${open ? "w-72" : "w-20"} h-screen p-5 pt-8 duration-300 bg-black relative`}
+        className={`h-[100%] ml-3 md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10  ${open ? "w-72" : "w-20"} p-5 pt-8 duration-300 bg-white relative `}
       >
         <img
           src={Control}
@@ -49,7 +49,7 @@ function SideBar() {
                     `}
           />
           <h1
-            className={`text-white origin-left font-medium text-xl duration-300 ${!open && "scale-0"
+            className={`text-blue origin-left font-medium text-xl duration-300 ${!open && "scale-0"
               }`}
           >
             Ped
@@ -59,7 +59,7 @@ function SideBar() {
           {Menus.map((menu, index) => (
             <li
               key={index}
-              className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-gray-600 rounded-md ${menu.gap ? "mt-9" : "mt-2"
+              className={`text-gray-900 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-gray-200 rounded-md ${menu.gap ? "mt-9" : "mt-2"
                 }`}
             >
               {/* Check if the menu item has a modal */}

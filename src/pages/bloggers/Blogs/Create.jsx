@@ -12,6 +12,7 @@ import axios from "axios";
 
 const Create = () => {
   const [title, setTitle] = useState("");
+  // const [tag, setTag] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
   const [uploadImage, setUploadImage] = useState(null);
@@ -20,6 +21,10 @@ const Create = () => {
     const updatedContent = args.value;
     setContent(updatedContent);
   };
+  const images = ['https://res.cloudinary.com/dknvsbuyy/image/upload/v1684171793/angular_vs_react_1024x512_12233d6004.png',
+'https://res.cloudinary.com/dknvsbuyy/image/upload/v1684171980/How_to_stay_focused_on_Revenue_Marketing_Practices_4_d128dc86aa.jpg',
+'https://res.cloudinary.com/dknvsbuyy/image/upload/v1684246282/97069080_d012_11ea_9317_a871d5105486_f2df24134c.png',
+'https://res.cloudinary.com/dknvsbuyy/image/upload/v1684246461/CM_Flutter_vs_RN_81f074bfd9.jpg'];
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -38,6 +43,7 @@ const Create = () => {
 
     const formData = new FormData();
     formData.append("title", title);
+    // formData.append("tag", tag);
     formData.append("content", content);
     formData.append("image", image);
 
@@ -45,7 +51,6 @@ const Create = () => {
     console.log(`${token}`);
 
     try {
-     
       const response = await axios.post(
         "https://pedbackend.onrender.com/api/v1/ped/blogs",
         formData,
@@ -58,6 +63,11 @@ const Create = () => {
 
       const newBlog = response.data;
       console.log("New Blog:", newBlog);
+      setTitle("");
+      setContent("");
+      setImage(null);
+      alert("Blog Created Successfully")
+      window.location.href = '/blg/blogs';
     } catch (error) {
       console.log("Error uploading the blog:" + error);
     }
@@ -81,6 +91,21 @@ const Create = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
+        {/* <div className="mb-6">
+          <label
+            htmlFor="blog-title"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Blog tag
+          </label>
+          <input
+            type="text"
+            id="blog-title"
+            value={tag}
+            onChange={(e) => setTag(e.target.value)}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
+        </div> */}
         <div className="mb-6">
           <label
             htmlFor="blog-image"
@@ -110,10 +135,10 @@ const Create = () => {
               services={[HtmlEditor, Toolbar, Image, Link, QuickToolbar]}
             />
           </RichTextEditorComponent>
-          <div>
+          {/* <div>
             <h3>Content:</h3>
             <div dangerouslySetInnerHTML={{ __html: content }} />
-          </div>
+          </div> */}
         </div>
         <div className="justify-end">
           <input

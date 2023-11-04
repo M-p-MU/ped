@@ -18,19 +18,8 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  //   const [formData, setFormData] = useState({
-  //     username: "",
-  //     email: "",
-  //     password: "",
-  //   });
-
-  //   const handleInputChange = (e) => {
-  //     const { name, value } = e.target;
-  //     setFormData({
-  //       ...formData,
-  //       [name]: value,
-  //     });
-  //   };
+  
+  
   const validate = () => {
     let status = true;
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -67,14 +56,14 @@ function Register() {
       password,
     };
     if (validate()) {
-      alert(
-        "====== Test ======\n Name: " +
-          username +
-          "\n E-mail: " +
-          email +
-          "\n password: " +
-          password
-      );
+      // alert(
+      //   "====== Test ======\n Name: " +
+      //     username +
+      //     "\n E-mail: " +
+      //     email +
+      //     "\n password: " +
+      //     password
+      // );
       try {
         const response = await GlobalApi.registerUser(registrationData);
         alert("To complete this registration prcess, check you mail and click on the verified link so that you will able login.\nPlease try again if your are not receiving a mail within 5 minutes and make sure you enter valid email.");

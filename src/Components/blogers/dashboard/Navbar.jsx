@@ -10,9 +10,6 @@ import { Cart, Chat, Notification, UserProfile } from "../../admin";
 // import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from "../../../contexts/ContextProvider";
 import jwt_decode from "jwt-decode";
-import Button from "../Button";
-import { MdOutlineCancel } from 'react-icons/md';
-import { userProfileData } from '../../../data/dummy';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <TooltipComponent content={title} position="BottomCenter">

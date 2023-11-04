@@ -23,7 +23,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<UserIndex />} />
-        <Route path='register' element={<Register />} />
+        <Route exact path='/register' element={<Register />} />
         <Route path='login' element={<Login />} />
         <Route path='login-with' element={<LoginOption />} />
         {/* USER */}
